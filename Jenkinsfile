@@ -2,10 +2,6 @@
 /* groovylint-disable-next-line CompileStatic */
 pipeline {
     agent any
-    environment {
-        AWS_ACCESS_KEY_ID     = credentials('aws_access_key_id')
-        AWS_SECRET_ACCESS_KEY = credentials('aws_secret_access_key')
-    }
     parameters {
         booleanParam(name: 'RELOAD_JOB', defaultValue: false, description: 'Reload job from Jenkinsfile and exit')
         string(name: 'PROJECTS', description: 'Enter Single/Multiple Project Names separated by comma delimiter. example: azure-data-warehouse,oracle')
@@ -30,8 +26,6 @@ pipeline {
                 sh """ #!/usr/bin/env bash
                 set -eu
                 export env=$PROJECTS
-                export AWS_SECRET_ACCESS_KEY
-                export AWS_ACCESS_KEY_ID
                 sh -x ./python-setup.sh
                 sh python ./rc-copy.py
                 """
@@ -40,3 +34,4 @@ pipeline {
         }
     }
 }
+

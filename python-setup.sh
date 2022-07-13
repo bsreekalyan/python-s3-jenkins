@@ -6,6 +6,7 @@ package_check () {
     echo "The $1 is not installed."
     apt update -y
     apt install "$1" -y
+    echo "The $1 is now installed."
    else
     echo "The $1 is already installed."
    fi 
