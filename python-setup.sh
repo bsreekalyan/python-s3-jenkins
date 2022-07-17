@@ -16,4 +16,3 @@ package_check python3
 package_check pip
 
 pip install boto3
-pip install aws-sdk-s3
