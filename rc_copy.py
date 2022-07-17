@@ -3,8 +3,6 @@ import boto3
 import project_check
 import os
 
-file_key = ''
-
 projects_list=[]
 projects=os.environ["env"]
 projects_list=projects.split(",")
