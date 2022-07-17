@@ -3,8 +3,8 @@ import boto3
 import bucket_check
 import os
 
-projects=[]
 projects=os.environ["env"]
+projects_list=projects.split(",")
 print(projects)
 
 for project in projects:
