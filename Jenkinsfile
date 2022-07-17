@@ -22,7 +22,7 @@ pipeline {
                 expression { params.RELOAD_JOB == false }
             }
             steps {
-                withAWS(credentials: 'jenkins-test-user', region: 'ap-south-1') {
+                withAWS(credentials: 'jenkins-user', region: 'ap-south-1') {
                 sh """ #!/usr/bin/env bash
                 set -eu
                 export env=$PROJECTS
