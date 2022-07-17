@@ -1,8 +1,11 @@
 # Importing boto3 library
 import boto3
 import bucket_check
+import os
 
-print(env)
+projects=[]
+projects=os.environ["env"]
+print(projects)
 
 s3 = boto3.resource('s3')
  
