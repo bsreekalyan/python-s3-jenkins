@@ -9,4 +9,3 @@ projects_list=projects.split(",")
 
 for project in projects_list:
     print(bucket_check.bucket_exists(project))
-
