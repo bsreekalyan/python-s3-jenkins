@@ -16,8 +16,4 @@ package_check python3
 package_check pip
 
 pip install boto3
-
-echo $AWS_SECRET_ACCESS_KEY
-echo $AWS_ACCESS_KEY_ID
-aws configure list
-aws sts get-caller-identity
+pip install aws-sdk-s3
