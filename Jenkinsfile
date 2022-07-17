@@ -17,6 +17,9 @@ pipeline {
                 echo('Ended pipeline after reloading')
             }
         }
+        stage('check bucket exists or not')  {
+
+        }
         stage('Copy the Release Candidate to final Directory in aws s3 bucket') {
             when {
                 expression { params.RELOAD_JOB == false }
