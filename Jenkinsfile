@@ -27,7 +27,7 @@ pipeline {
                 set -eu
                 export env=$PROJECTS
                 sh -x ./python-setup.sh
-                python3 ./rc-copy.py
+                python3 ./rc_copy.py
                 """
                 }
             }
