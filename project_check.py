@@ -1,15 +1,14 @@
-from genericpath import exists
 import boto3
 from botocore.exceptions import ClientError
 
 # To check whether root bucket exists or not
 def object_exists(project_name):
-   bucket_name='sreekalyan-enterprise-1'+'/'+'release'+'/'+project_name
+   bucket_name='sreekalyan-enterprise-1'
    try:
       session = boto3.session.Session()
       # User can pass customized access key, secret_key and token as well
       s3_resource = session.resource('s3')
-      s3_resource.meta.client.head_bucket(Bucket=bucket_name)
+      s3_resource.Object(bucket_name,project_name).load()
       print("Bucket exists.", bucket_name)
       exists = True
    except ClientError as error:
