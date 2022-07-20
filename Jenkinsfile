@@ -22,16 +22,15 @@ pipeline {
                 expression { params.RELOAD_JOB == false }
             }
             steps {
-                withAWS(credentials: 'jenkins-user', region: 'ap-south-1') {
                 sh """ #!/usr/bin/env bash
                 set -eu
-                export env=$PROJECTS
-                sh -x ./python-setup.sh
-                python3 ./rc_copy.py
+                export PROJECTS=$PROJECTS
+                export VERSION=$VERSION
+                exoprt RC_VERSION=$RC_VERSION
+                sh ./python_setup.sh
+                python3 main.py
                 """
-                }
             }
         }
     }
 }
-
