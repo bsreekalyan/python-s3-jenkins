@@ -3,7 +3,7 @@ import os
 import project_check
 import project_copy
 
-
+os.environ['AWS_PROFILE'] = "default"
 projects_list=[]
 projects=os.environ["PROJECTS"]
 version=os.environ["VERSION"]
