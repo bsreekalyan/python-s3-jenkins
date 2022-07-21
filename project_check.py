@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 import boto3
 
-s3_session = boto3.client(service_name='s3',region_name='us-west-2')
+
 
 def project_exists(project_name,final_version):
     bucket_name = "sreekalyan-enterprise-1"
     project_key = 'release' +'/' + project_name +'/'
     version_key = project_key + final_version + '/'
+    s3_session = boto3.client(service_name='s3',region_name='us-west-2')
+    
     project = s3_session.list_objects_v2(Bucket=bucket_name, Prefix=project_key)
     if 'Contents' in project:
         print("Project exists")
